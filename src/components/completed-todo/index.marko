@@ -1,0 +1,37 @@
+class {
+    onBtnCheck(e) {
+
+        /* retrieve status info */
+        const todoStatus = e.target.checked;
+        const todoId = e.target.getAttribute("data-todo");
+        const todo = { id: todoId, status: todoStatus };
+
+        /* emit status update */
+        this.emit('status-update',{todo}) 
+    }
+}
+
+<ul class="list-group mb-0">
+
+    <if(input.todos.length > 0)>
+        <for|todo| of=input.todos>
+            <if(todo.completed === true)>
+                <li
+                    class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+                    style="background-color: #f4f6f7;"
+                >
+                    <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        value=""
+                        aria-label="..."
+                        checked
+                        data-todo=todo._id
+                        on-click("onBtnCheck")
+                    >
+                    <s>${todo.title}</s>
+                </li>
+            </if>
+        </for>
+    </if>
+</ul>

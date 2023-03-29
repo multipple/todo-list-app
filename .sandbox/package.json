@@ -1,0 +1,46 @@
+{
+  "name": "sandbox",
+  "description": "MarkoJS Sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "rimraf ./build && razzle build",
+    "start": "razzle start",
+    "start:prod": "node build/server.js NODE_ENV=production",
+    "test": "ava test/**/*.js --verbose",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepack": "yarn lint:fix"
+  },
+  "dependencies": {
+    "@marko/express": "^2.0.1",
+    "assert": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
+    "marko": "^5.21.9",
+    "razzle": "^4.2.17",
+    "razzle-plugin-disable-sourcemaps": "^1.0.10",
+    "sass": "^1.54.4",
+    "stream-browserify": "^3.0.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@marko/webpack": "^9.3.0",
+    "babel-preset-razzle": "^4.2.17",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "razzle-dev-utils": "^4.2.17",
+    "rimraf": "^3.0.2",
+    "postcss-loader": "^6.2.1",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "main": "src/index.js",
+  "author": "Fabrice Marlboro"
+}
