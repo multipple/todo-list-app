@@ -7,6 +7,7 @@
 		"start": "cd ./.sandbox && yarn start",
 		"build": "cd ./.sandbox && yarn build",
 		"test": "cd ./.sandbox && yarn test:dev",
+		"back_build": "tsc -w",
 		"backend": "cd dist/src && node app.js",
 		"app": "concurrently \"yarn start\" \"yarn backend\""
 	},
